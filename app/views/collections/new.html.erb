@@ -1,0 +1,12 @@
+<h2>New Collection</h2>
+
+<%= form_for @collection do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <br>
+
+  <%= f.submit 'Create New Collection' %>
+<% end %>

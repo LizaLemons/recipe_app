@@ -1,0 +1,8 @@
+<h2>Collections</h2>
+
+<p><%= link_to('Create New Collection', new_collection_path(@collection)) %></p>
+<hr>
+
+<% @collections.each do |collection| %>
+  <%= link_to collection.name, collection_path(collection) %><br>
+<% end %>

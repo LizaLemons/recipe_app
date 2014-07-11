@@ -1,0 +1,9 @@
+<h2>Users</h2>
+<hr>
+<% @users.each do |user| %>
+  <h3><%= link_to "#{user.first_name} #{user.last_name}", user_path(user) %></h3>
+  Username: "<%= user.username %>"<br>
+  User ID: <%= user.id %><br>
+  <%= link_to image_tag(user.photo_url), user_path(user) %><br>
+<hr>
+<% end %>

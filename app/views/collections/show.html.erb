@@ -1,0 +1,14 @@
+<h3><%= @collection.name %></h3>
+
+<p><%= link_to('Add Recipes to this Collection', new_recipe_path(@recipe)) %></p>
+
+<% @collection.recipes.each do |recipe| %>
+  <%= link_to recipe.title, recipe_path(recipe) %><br>
+  <%= link_to image_tag(recipe.image_url), recipe_path(recipe) %>
+<hr>
+<% end %>
+
+<% if session[:current_user] == @collection.user_id %>
+  <%= link_to 'Edit Collection', edit_collection_path(@collection) %><br>
+  <%= link_to 'Delete Collection', collection_path(@collection), method: :delete %></p>
+<% end %>

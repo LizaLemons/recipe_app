@@ -1,0 +1,33 @@
+<h2>Edit User</h2>
+
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <br>
+
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <br>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <br>
+
+  <%= f.label :age %>
+  <%= f.text_field :age %>
+  <br>
+
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+  <br>
+
+  <%= f.label :state_abr %>
+  <%= f.text_field :state_abr %>
+  <br>
+
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %>
+  <br>
+
+  <%= f.submit 'Update Info' %>
+<% end %>

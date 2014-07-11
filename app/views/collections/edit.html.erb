@@ -1,0 +1,17 @@
+<h2>Edit Collection: <%= @collection.name %></h2>
+
+<%= form_for @collection do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+<%= f.submit 'Edit Collection Name' %>
+<% end %>
+
+<%= form_tag '/remove_recipe', method: :post do %>
+  <%= hidden_field_tag :id, @collection.id %>
+  <%= label_tag :recipe_id %>
+  <%= select_tag :recipe_id, options_for_select(@collection.recipes.map { |r| [r.title, r.id] }) %>
+  <br>
+
+<%= submit_tag('Remove Recipe') %>
+<% end %>
