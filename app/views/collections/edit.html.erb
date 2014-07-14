@@ -3,7 +3,6 @@
 <%= form_for @collection do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
-  <br>
 <%= f.submit 'Edit Collection Name' %>
 <% end %>
 
@@ -11,7 +10,6 @@
   <%= hidden_field_tag :id, @collection.id %>
   <%= label_tag :recipe_id %>
   <%= select_tag :recipe_id, options_for_select(@collection.recipes.map { |r| [r.title, r.id] }) %>
-  <br>
 
-<%= submit_tag('Remove Recipe') %>
+<%= submit_tag('Remove') %>
 <% end %>

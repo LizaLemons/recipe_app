@@ -3,12 +3,11 @@
 <h4><%= @recipe.title %></h4>
 <%= image_tag(@recipe.image_url) %>
 
-<p><%= @recipe.ingredients %></p>
-
-
 <% if @recipe.directions != nil %>
+  <p><%= @recipe.ingredients %></p>
   <p><%= @recipe.directions %></p>
 <% else %>
+  <p>Ingredients: <%= @recipe.ingredients %></p>
   <a href="http://www.yummly.com/recipe/<%= @recipe.yummly_id %>">View directions on Yummly</a>
 <% end %>
 

@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
     @collection.add_recipe(@recipe)
 
     if @recipe.save
-      redirect_to(recipe_path(@recipe))
+      redirect_to(collection_path(@collection))
     else
       redirect_to new_recipe_path
     end
