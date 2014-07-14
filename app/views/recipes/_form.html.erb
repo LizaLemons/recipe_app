@@ -1,0 +1,27 @@
+<%= form_for @recipe do |f| %>
+  Title: <% f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+
+  Ingredients:
+  <% f.label :ingredients %>
+  <%= f.text_field :ingredients %>
+  <br>
+
+  Directions:
+  <% f.label :directions %>
+  <%= f.text_field :directions %>
+  <br>
+
+  Image URL:
+  <% f.label :image_url %>
+  <%= f.text_field :image_url %>
+  <br>
+
+  Select Collection:
+  <% f.label :collection_id %>
+  <%= select_tag :collection_id, options_for_select(current_user.collections.map { |c| [c.name, c.id] }) %>
+  <br>
+
+  <%= f.submit %>
+<% end %>

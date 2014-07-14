@@ -1,26 +1,3 @@
 <h2>Edit Recipe: <%= @recipe.title %></h2>
 
-<%= form_for @recipe do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br>
-
-  <%= f.label :ingredients %>
-  <%= f.text_field :ingredients %>
-  <br>
-
-  <%= f.label :directions %>
-  <%= f.text_field :directions %>
-  <br>
-
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
-  <br>
-
-  Select Collection:
-  <% f.label :collection_id %>
-  <%= select_tag :collection_id, options_for_select(current_user.collections.map { |c| [c.name, c.id] }) %>
-  <br>
-
-  <%= f.submit 'Edit Recipe' %>
-<% end %>
+<%= render 'form' %>

@@ -3,12 +3,10 @@
 <%= image_tag(@user.photo_url) %><br>
 
 Username: <%= @user.username %><br>
-User ID: <%= @user.id %><br>
 Age: <%= @user.age %><br>
 Location: <%= @user.city %>, <%= @user.state_abr %><br>
 
   <% if session[:current_user] == @user.id %>
-    <p>Password: <%= @user.password_digest %><br>
     <%= link_to 'Edit User', edit_user_path(@user) %><br>
     <%= link_to 'Delete Account', user_path(@user), method: :delete %></p>
   <% end %>
