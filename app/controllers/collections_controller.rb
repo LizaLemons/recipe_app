@@ -1,6 +1,6 @@
 class CollectionsController < ApplicationController
 
-  # before_action :authenticate, only: [:new, :create]
+  before_action :authenticate, only: [:new, :create]
 
   def index
     @collections = Collection.all
