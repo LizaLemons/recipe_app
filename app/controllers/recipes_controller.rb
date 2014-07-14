@@ -52,6 +52,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     search_term = params[:search]
     @search_results = Yummly.search(search_term)
+    @shopping_lists = Yummly.filter(@search_results, search_term)
   end
 
   private

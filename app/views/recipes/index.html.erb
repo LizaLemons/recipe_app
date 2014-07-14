@@ -1,9 +1,11 @@
-<h2>All Recipes</h2>
+<h2>Jambalaya</h2>
 
-<p><%= link_to('Create your own recipe', new_recipe_path(@recipe)) %></p>
+<h4>All Recipes</h4>
+
+<h6><%= link_to('Create your own recipe', new_recipe_path(@recipe)) %></h6>
 
 <hr>
 <% @recipes.each do |recipe| %>
-  <%= link_to recipe.title, recipe_path(recipe) %><br>
+  <p><%= link_to recipe.title, recipe_path(recipe) %></p><br>
 <% end %>
 <hr>

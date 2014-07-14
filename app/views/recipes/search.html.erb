@@ -1,25 +1,30 @@
-<div>
-  <p><% @search_results.each do |result| %>
-    Title: <%= result["recipeName"] %><br>
-    Ingredients: <%= result["ingredients"].join(', ') %><br>
-    <img src="<%= result["imageUrlsBySize"]["90"] %>"><br>
+<div class="search results">
+
+  <h2>Jambalaya</h2>
+
+  <div class="result">
+
+  <% @search_results.each_with_index do |result, index| %>
+    <h6><%= result["recipeName"] %></h6>
+    <img src="<%= result["imageUrlsBySize"]["90"] %>">
+    <h6>Your shopping list for this recipe would be:</h6>
+      <p><%= @shopping_lists[index].join(', ') %></p>
+
+    <%= form_for @recipe do |f| %>
+      <%= f.hidden_field :title, :value => result["recipeName"] %>
+      <%= f.hidden_field :ingredients, :value => result["ingredients"].join(', ') %>
+      <%= f.hidden_field :image_url, :value => result["imageUrlsBySize"]["90"] %>
+      <%= f.hidden_field :yummly_id, :value => result["id"] %>
+
+      Add to Collection:
+      <% f.label :collection_id %>
+      <%= select_tag :collection_id, options_for_select(current_user.collections.map { |c| [c.name, c.id] }) %>
+
+      <%= f.submit 'Add Recipe'%>
+    <% end %>
+
+    <h6><a href="http://www.yummly.com/recipe/<%=result["id"]%>">See this recipe on Yummly</a></h6>
+
+  <% end %>
+
 </div>
-
-<a href="http://www.yummly.com/recipe/<%=result["id"]%>">See this recipe on Yummly</a>
-
-
-<%= form_for @recipe do |f| %>
-  <%= f.hidden_field :title, :value => result["recipeName"] %>
-  <%= f.hidden_field :ingredients, :value => result["ingredients"].join(', ') %>
-  <%= f.hidden_field :image_url, :value => result["imageUrlsBySize"]["90"] %>
-  <%= f.hidden_field :yummly_id, :value => result["id"] %><br>
-
-  Add to Collection:
-  <% f.label :collection_id %>
-  <%= select_tag :collection_id, options_for_select(current_user.collections.map { |c| [c.name, c.id] }) %>
-  <br>
-
-  <%= f.submit 'Add Recipe'%>
-  <% end %><br>
-
-<% end %></p>

@@ -6,5 +6,16 @@ class Yummly
     ))
     return results["matches"][0..9]
   end
-  
+
+  def self.filter(search_results, search_term)
+    search_array = search_term.split
+    shop_lists = []
+    search_results.each do |result|
+      search_array.each do |term|
+        shop_lists << result["ingredients"].reject { |ingredient| ingredient.include?(term)}
+      end
+    end
+    return shop_lists
+  end
+
 end

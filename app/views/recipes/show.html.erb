@@ -1,22 +1,16 @@
+<h2>Jambalaya</h2>
 
-<h3><%= @recipe.title %></h3>
+<h4><%= @recipe.title %></h4>
 <%= image_tag(@recipe.image_url) %>
-<br>
-<br>
 
-Ingredients:<br>
-<%= @recipe.ingredients %>
-<br>
-<br>
+<p><%= @recipe.ingredients %></p>
+
 
 <% if @recipe.directions != nil %>
-  Directions:<br>
-  <%= @recipe.directions %>
+  <p><%= @recipe.directions %></p>
 <% else %>
   <a href="http://www.yummly.com/recipe/<%= @recipe.yummly_id %>">View directions on Yummly</a>
 <% end %>
-
-
 
 <%= form_for @recipe do |f| %>
   <%= f.hidden_field :title%>
@@ -25,15 +19,15 @@ Ingredients:<br>
   <%= f.hidden_field :image_url %>
   <%= f.hidden_field :yummly_id %><br>
 
-  Add to My Collection:
+  <h6>Add to My Collection:
   <% f.label :collection_id %>
   <%= select_tag :collection_id, options_for_select(current_user.collections.map { |c| [c.name, c.id] }) %>
 
   <%= f.submit 'Add Recipe' %>
-<% end %><br>
+<% end %></h6>
 
 
 <% if @recipe.collections.find_by(user_id: session[:current_user]) %>
-  <p><%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %><br>
-  <%= link_to 'Delete Recipe', recipe_path(@recipe), method: :delete %></p>
+  <p><%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %></p>
+  <p><%= link_to 'Delete Recipe', recipe_path(@recipe), method: :delete %></p>
 <% end %>
