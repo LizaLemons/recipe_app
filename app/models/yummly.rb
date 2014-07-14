@@ -1,8 +1,11 @@
 class Yummly
 
   def self.search(search_term)
+    app_id = ENV['yummly_app_id']
+    app_key = ENV['yummly_app_key']
+
     results = HTTParty.get(URI.escape(
-    "http://api.yummly.com/v1/api/recipes?_app_id=8541023c&_app_key=99877d3e6c0977fb1b275698190aa079&q=#{search_term}&requirePictures=true"
+    "http://api.yummly.com/v1/api/recipes?_app_id=#{app_id}&_app_key=#{app_key}&q=#{search_term}&requirePictures=true"
     ))
     return results["matches"][0..9]
   end
