@@ -50,7 +50,7 @@ nav a:hover {
 }
 
 header {
-  background-color: black
+  background-color: black;
   padding: 2% 2% 1% 2%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
