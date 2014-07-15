@@ -16,19 +16,25 @@
 
 body {
   line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Raleway', sans-serif, "Helvetica Neue", Helvetica, Arial, sans-serif;
   border-top: 10px solid black;
+  background: url("http://i1371.photobucket.com/albums/ag318/thrifstorejunky/IMG_1867_zps78f25d32.jpg");
+  background-size: cover;
 }
 
-h1 {
+h2 {
+  font-family: 'Open Sans Condensed', sans-serif;
   font-size: 30px;
-  font-weight: bold;
+  font-weight: light;
   letter-spacing: -1px;
+  padding-top: 5px;
+  text-align: left;
+  color: #006983;
 }
 
 nav {
   text-align: right;
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 nav a  {
@@ -44,9 +50,28 @@ nav a:hover {
 }
 
 header {
-  margin-bottom: 25px;
+  background-color: black
+  padding: 2% 2% 1% 2%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
-.welcome h1 {
+.container {background: #FFF; padding: 20px; margin-top: 50px; min-height:400px;}
 
+.welcome {
+  padding: 20px;
+  margin-top: 100px;
+  margin-left: 200px;
+  }
+
+h4 {
+  font-weight: bold;
+  letter-spacing: -1px;
+  color: #006983;
+}
+
+h6 {
+  font-weight: bold;
+  letter-spacing: -1px;
+  color: #006983;
 }
