@@ -10,7 +10,7 @@ many recipes. They can add another user's recipe to their own collection, and
 they can enter in their own recipe.
 
 Heroku:
-http://frozen-hamlet-8685.herokuapp.com/
+http://jambalaya.herokuapp.com/
 
 Github:
 https://github.com/LizaLemons/recipe_app
